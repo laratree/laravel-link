@@ -38,8 +38,13 @@ return [
 ## Usage
 
 ```php
-$variable = new VendorName\Skeleton();
-echo $variable->echoPhrase('Hello, VendorName!');
+$user = User::latest()->first();
+$user->link()->create([
+    'url' => 'https://www.user.com'
+]);
+
+$user->with('link')->get();
+$user->link->url;
 ```
 
 ## Testing

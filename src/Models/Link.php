@@ -10,7 +10,7 @@ class Link extends Model
 {
 
     protected $fillable = [
-        'link'
+        'url'
     ];
 
     public function linkable(): MorphTo
