@@ -1,0 +1,65 @@
+{
+    "name": "laratree/:package_slug",
+    "description": ":package_description",
+    "keywords": [
+        "laratree",
+        "laravel",
+        ":package_slug"
+    ],
+    "homepage": "https://github.com/laratree/:package_slug",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MimisK",
+            "email": "author@domain.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laratree\\Skeleton\\": "src/",
+            "Laratree\\Skeleton\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laratree\\Skeleton\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@composer run prepare",
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": [
+            "@composer run prepare",
+            "@php vendor/bin/testbench workbench:build --ansi"
+        ],
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "@composer run build",
+            "@php vendor/bin/testbench serve"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laratree\\Skeleton\\SkeletonServiceProvider"
+            ],
+            "aliases": {
+                "Skeleton": "Laratree\\Skeleton\\Facade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
