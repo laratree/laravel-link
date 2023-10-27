@@ -1,6 +1,7 @@
 {
     "name": "laratree/laravel-link",
-    "description": "",
+    "description": "Associate models with URL links",
+    "version": "0.0.1",
     "keywords": [
         "laratree",
         "laravel",
@@ -11,7 +12,7 @@
     "authors": [
         {
             "name": "MimisK",
-            "email": "author@domain.com",
+            "email": "mimisk88@gmail.com",
             "role": "Developer"
         }
     ],
