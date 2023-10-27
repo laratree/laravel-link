@@ -19,6 +19,7 @@ You can publish and run the migrations with:
 
 ```bash
 php artisan vendor:publish --tag="laravel-link-migrations"
+
 php artisan migrate
 ```
 
@@ -32,12 +33,18 @@ This is the contents of the published config file:
 
 ```php
 return [
+    //
 ];
 ```
 
 ## Usage
 
 ```php
+
+// Register Trait on User model.
+use HasLink;
+
+// 
 $user = User::latest()->first();
 $user->link()->create([
     'url' => 'https://www.user.com'
