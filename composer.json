@@ -30,23 +30,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Laratree\\LaravelLink\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Laratree\\LaravelLink\\Tests\\": "tests/"
         }
-    },
-    "scripts": {
-        "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-laravel-link --ansi",
-        "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "build": [
-            "@composer run prepare",
-            "@php vendor/bin/testbench workbench:build --ansi"
-        ],
-        "start": [
-            "Composer\\Config::disableProcessTimeout",
-            "@composer run build",
-            "@php vendor/bin/testbench serve"
-        ]
     },
     "config": {
         "sort-packages": true
