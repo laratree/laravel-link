@@ -31,3 +31,8 @@ jobs:
         run: composer install
       - name: PHPUnit check
         run: vendor/bin/phpunit tests/
+      # 
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
