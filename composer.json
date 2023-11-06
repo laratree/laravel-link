@@ -15,10 +15,8 @@
             "role": "Developer"
         }
     ],
-    "require": {
-
-    },
     "require-dev": {
+        "laravel/pint": "^1.13",
         "orchestra/testbench": "^8.13"
     },
     "autoload": {
