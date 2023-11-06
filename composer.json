@@ -24,8 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Laratree\\LaravelLink\\": "src/",
-            "Laratree\\LaravelLink\\Database\\Factories\\": "database/factories/"
+            "Laratree\\LaravelLink\\": "src/"
         }
     },
     "autoload-dev": {
