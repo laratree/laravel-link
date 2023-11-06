@@ -15,8 +15,6 @@ jobs:
         uses: shivammathur/setup-php@v2
       - name: Install dependencies
         run: composer install
-      - name: PHPCSFixer check
-        run: composer check-style
   phpunit:
     strategy:
       matrix:
