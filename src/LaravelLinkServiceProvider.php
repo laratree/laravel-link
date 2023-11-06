@@ -21,7 +21,10 @@ class LaravelLinkServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/database/migrations/create_links_table.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_links_table.php'),
-        ], 'laravel-links-migrations');
+        ], 'laravel-link-migrations');
 
+        $this->publishes([
+            __DIR__ . '/config/laravel-link.php' => config_path('laravel-link')
+        ], 'laravel-link');
     }
 }
