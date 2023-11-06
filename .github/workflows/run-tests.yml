@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: composer install
       - name: PHPUnit check
-        run: vendor/bin/phpunit tests/
+        run: vendor/bin/phpunit tests/ --coverage-clover ./coverage.xml
       # 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
