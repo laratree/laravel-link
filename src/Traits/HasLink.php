@@ -2,12 +2,12 @@
 
 namespace Laratree\LaravelLink\Traits;
 
-use Laratree\LaravelLink\Models\Link;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Laratree\LaravelLink\Models\Link;
 
-trait HasLink {
-
+trait HasLink
+{
     use HasRelationships;
 
     public function link(): MorphOne
@@ -56,7 +56,6 @@ trait HasLink {
         return $this;
     }
      */
-
     public function deleteLink(string $url)
     {
         return $this->getLink()

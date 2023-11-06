@@ -2,48 +2,47 @@
 
 namespace Laratree\LaravelLink\Tests\Package;
 
-use Laratree\LaravelLink\Tests\TestCase;
 use Laratree\LaravelLink\Tests\SetUp\Models\Manufacturer;
+use Laratree\LaravelLink\Tests\TestCase;
 
 class LinkTest extends TestCase
 {
-
-    function test_can_create_model_for_tests()
+    public function test_can_create_model_for_tests()
     {
         $this->withoutExceptionHandling();
 
         $manufacturer = Manufacturer::create([
-           'name' => 'Lacoustics'
+            'name' => 'Lacoustics',
         ]);
 
         $manufacturer->link()->create([
-            'url' => 'https://www.lacoustics.com'
+            'url' => 'https://www.lacoustics.com',
         ]);
 
         $this->assertDatabaseCount('manufacturers', 1);
         $this->assertDatabaseHas('manufacturers', [
-            'name' => 'Lacoustics'
+            'name' => 'Lacoustics',
         ]);
         $this->assertDatabaseCount('links', 1);
         $this->assertDatabaseHas('links', [
-            'url' => 'https://www.lacoustics.com'
+            'url' => 'https://www.lacoustics.com',
         ]);
     }
 
-    function test_can_attach_link_to_model()
+    public function test_can_attach_link_to_model()
     {
         $manufacturer = $this->createManufacturer();
         $manufacturer->attachLink($url = 'test.com');
 
         $this->assertDatabaseCount('links', 1);
         $this->assertDatabaseHas('links', [
-            'url' => 'test.com'
+            'url' => 'test.com',
         ]);
 
         $this->assertTrue($manufacturer->hasLink('test.com'));
     }
 
-    function test_get_link_from_relation()
+    public function test_get_link_from_relation()
     {
         $manufacturer = $this->createManufacturer();
         $manufacturer = Manufacturer::query()->with('link')->first();
@@ -54,16 +53,15 @@ class LinkTest extends TestCase
         $this->assertNotEmpty($manufacturer->link()->get());
     }
 
-//    function test_manufacturer_has_link_value()
-//    {
-//        //
-//    }
+    //    function test_manufacturer_has_link_value()
+    //    {
+    //        //
+    //    }
 
-    function test_manufacturer_delete_link()
+    public function test_manufacturer_delete_link()
     {
         $manufacturer = $this->createManufacturer();
         $manufacturer->attachLink('test.com');
-
 
         $this->assertDatabaseCount('manufacturers', 1);
         $this->assertDatabaseCount('links', 1);
@@ -73,7 +71,7 @@ class LinkTest extends TestCase
         $this->assertDatabaseCount('links', 0);
     }
 
-    function createManufacturer()
+    public function createManufacturer()
     {
         return Manufacturer::query()->create(['name' => 'Electro Voice']);
     }

@@ -20,11 +20,11 @@ class LaravelLinkServiceProvider extends ServiceProvider
     protected function publishing(): void
     {
         $this->publishes([
-            __DIR__ . '/database/migrations/create_links_table.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_links_table.php'),
+            __DIR__.'/database/migrations/create_links_table.php' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_links_table.php'),
         ], 'laravel-link-migrations');
 
         $this->publishes([
-            __DIR__ . '/config/laravel-link.php' => config_path('laravel-link')
+            __DIR__.'/config/laravel-link.php' => config_path('laravel-link'),
         ], 'laravel-link');
     }
 }
