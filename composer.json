@@ -1,7 +1,6 @@
 {
     "name": "laratree/laravel-link",
     "description": "Associate models with URL links",
-    "version": "1.0.0",
     "keywords": [
         "laratree",
         "laravel",
