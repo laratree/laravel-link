@@ -26,14 +26,14 @@ php artisan migrate
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag=":laravel-link-config"
+php artisan vendor:publish --tag=":laravel-link"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
-    //
+    'table' => 'links',
 ];
 ```
 
@@ -44,14 +44,12 @@ return [
 // Register Trait on User model.
 use HasLink;
 
-// 
+// Attach Link to User
 $user = User::latest()->first();
-$user->link()->create([
-    'url' => 'https://www.user.com'
-]);
+$user->attachLink($url = 'https://portfolio.com');
 
-$user->with('link')->get();
-$user->link->url;
+// Delete Link
+$user->deleteLink('https://portfolio.com');
 ```
 
 ## Testing
